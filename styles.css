@@ -1,6 +1,9 @@
+/*Global*/
+
 * {
     color: black;
     font-family: 'Radley', serif;
+    overflow: auto;
 }
 
 body {
@@ -8,54 +11,165 @@ body {
     margin: 0;
     padding: 0;
     background-image: url(images/SelfPortraitExpanded.png);
-    background-size: contain;
+    background-size: 25%;
     background-repeat: repeat;
-    background-color: black;
+    background-color: #000;
 }
 
-header {
-    width: 100%;
-    position: sticky;
+footer {
+    margin-bottom: 10px;
+}
+
+footer div {
+    padding: 0 1%;
+}
+
+p {
+    margin: 5px 20px;
+}
+
+#other {
+    text-align: center;
+}
+
+.indent {
+    text-indent: 2em;
+}
+
+.underline {
+    margin-top: 20px;
+    font-size: 1.25em;
+}
+.underline:after {
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: #000;
+    width: 50%;
+    margin: auto;
+}
+
+.page-header {
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 1%;
+    margin: 0 auto 25px;
+    border: 1px solid #000;
+}
+
+.movies, .youtube {
+    font-size: 1.5em;
+}
+
+.no-show {
+    display: none;
+    position: fixed;
     top: 0;
-    z-index: 100;
-    margin-top: 0;
-    padding-top: 0;
-    padding-bottom: 1%;
-    background-color: white;
-    border: 0.5px solid white;
+    z-index: -999;
+    font-size: xx-small;
+}
+
+/*Variables*/
+
+.centered {
+    text-align: center;
+}
+
+.funky {
+    color: #ffb34d;
+}
+
+.highlight {
+    display: inline;
+    background-color: #ffb34d;
+}
+
+.not-highlight {
+    display: initial;
+    background-color: none;
 }
 
 .not-default-link {
     text-decoration: none;
 }
+
+.white {
+    color: #fff;
+}
+
+/*Header*/
+
+header {
+    width: 100vw;
+    position: sticky;
+    top: 0;
+    z-index: 800;
+    margin: 0;
+    padding-top: 0;
+    background-color: rgba(255, 255, 255, 0.938);
+    border: 0.5px solid #fff;
+    /*background-color: rgba(0, 0, 0, 0.719);
+    border: 0.5px solid #000;*/
+    box-shadow: 0 1.5px 0 rgb(51 51 51 / 7%);
+    display: inline-flex;
+    justify-content: space-between;
+}
+
 h1 {
-    font-size: xx-large;
+    display: block;
+    font-size: 1.75em;
     padding: 0 20px;
-    margin-top: 15px;
-    margin-right: 50px;
-    margin-bottom: 0;
-    border: 0.5px solid red;
+    margin: 10px 0 0 15px;
+}
+
+/*h1::after {
+    content: "";
+    background-image: url(images/SelfPortraitExpandedfav.png);
+    display: inline;
+}*/
+
+nav ul {
+    text-align: center;
+    margin: 7px 0 0;
+    padding: 5px;
+    display: inline-flex;
+    flex-wrap: nowrap;
 }
 
 nav ul li {
-    list-style-type: none;
-    margin-right: 5px;
     display: inline-flex;
-    padding: 0 10px;
-    font-size: x-large;
-    margin-bottom: 0;
-    margin-top: 0;
-    border: 0.5px solid red;
+    list-style-type: none;
+    font-size: 1.5em;
+    margin: 0 15px;
+    padding: 0 2px;
 }
 
 nav a:hover, h1 a:hover {
-    color: thistle;
+    background-color: rgba(0, 0, 0, 0.384);
+    color: khaki;
+    border-radius: 100%;
+}
+
+.current:hover {
+    background-color: #ffb34d;
+    border-radius: 0;
+    color: #000;
+}
+
+nav a {
+    padding: 2px;
+}
+
+aside a:hover {
+    color: #d8bfd8;
 }
 
 #more {
-    float: right;
-    font-size: large;
+    font-size: medium;
+    margin-top: 8px;
 }
+
+/*Content*/
 
 /*.banner {
     position: absolute;
@@ -65,39 +179,248 @@ nav a:hover, h1 a:hover {
     background-size: cover;
     background-repeat: repeat;
 }*/
+/*.about-me * {
+    border: 1px solid pink;
+}*/
+
+/*index.html*/
 
 .about-me, .about-site {
     width: 100%;
     height: auto;
     display: inline-flex;
     position: relative;
-    margin-top: 0;
-    color: black;
+    color: #000;
     background-size: contain;
+    margin: 10px 30px 10px;
 }
 
 .about-me img, .about-site img {
     width: 30%;
-    margin-right: 5%;
-    margin-left: 5%;
     height: auto;
+    min-width: 450px;
+}
+
+.about-me img, .about-site article {
+    margin-left: auto;
+    margin-right: 15px;
+}
+
+.about-me article, .about-site img {
+    margin-right: auto;
+    margin-left: 15px;
 }
 
 .about-me article, .about-site article {
-    width: 50%;
-    background-color: lightcyan;
-    padding: 0 5%;
+    width: auto;
+    max-width: 500px;
+    background-color: rgba(33, 81, 117, 0.9);
     align-items: center;
-    margin: 0 5%;
-}
-#other {
-    text-align: center;
 }
 
-/*.about-me * {
-    border: 1px solid pink;
+.about-me article {
+    padding: 20px 5% 0;
+    text-align: justify;
+}
+
+.about-site article {
+    padding: 0 5%;
+}
+
+.about-site h2, .about-me h2 {
+    display: inline-block;
+    font-size: 35px;
+    background-color: rgb(255, 179, 77);
+    background-size: contain;
+    padding: 0 10px;
+    font-weight: bold;
+    margin-top: 40px;
+}
+.about-me p, .about-site p {
+    margin: 25px;
+    padding: 5px;
+}
+.about-me p, .about-site p, .about-site li {
+    color: white;
+    font-size: 1.25em;
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    line-height: 1.5em;
+}
+
+.about-site ul {
+    margin-bottom: 25px;
+    margin-top: -15px;
+}
+
+.second {
+    padding-bottom: 15%;
+}
+
+
+/*eating.html*/
+
+.top-margin {
+    margin-top: 15px;
+}
+
+.quote:before {
+    content: "“";
+    font-size: 1.5em;
+    margin-right: 5px;
+}
+
+.quote:after {
+    content: "”";
+    font-size: 1.5em;
+} 
+
+.note {
+    font-size: 0.75em;
+    margin: 10px 0;
+}
+
+.quote {
+    padding: 0;
+    background-color: rgba(33, 81, 117, 0.95);
+    margin-top: 0;
+    font-style: italic;
+    border: 1px dashed #cf8a2f;
+    border-radius: 3px;
+    color: khaki;
+}
+
+.outro {
+    font-size: 0.9em;
+    margin-top: -5px;
+}
+
+.checkbox-list ul {
+    list-style-type: none;
+}
+
+.cooking-habits p {
+    text-align: left;
+}
+
+/*watching.html*/
+/*Aside*/
+
+aside {
+    position: fixed;
+    float: left;
+    background-color: rgba(33, 81, 117, 0.95);
+    padding: 1% 3%;
+    margin-left: 35px;
+    border: 4px solid black;
+    font-size: 1.2em;
+    border-radius: 3px;
+}
+
+/*aside h3, aside li, aside a {
+    color: #fff;
 }*/
 
-footer {
+/*Table*/
+
+table *{
+    text-align: left;
+    margin: 0;
+}
+
+table {
+    width: 50%;
+    margin: 0 auto 20px;
+    overflow-y: scroll;
+    background-color: transparent;
+    border: 3.5px solid black;
+    padding: 15px;
+    border-spacing: 0;
+    border-radius: 3px;
+}
+
+tbody, .labels {
+    background-color: #fff;
+}
+
+tr {
+    margin-bottom: 5px;
+}
+
+td, th {
+    padding: 1% 2%;
+    font-family: 'Lato', sans-serif;
+    border: 1px solid black;
+}
+
+.title-row th {
     text-align: center;
+    border: none;
+}
+
+.title-row tr {
+    font-size: 1em;
+}
+
+.title-row h2 {
+    margin: 25%;
+}
+
+.table-end {
+    padding: 5px 0;
+    font-style: italic;
+}
+
+.labels {
+    margin-top: 10px;
+}
+
+/*Movies List*/
+
+.movies article {
+    background-color: #fff/*rgba(9, 129, 78, 0.95)*/;
+    border: 5px solid black;
+    width: 50%;
+    box-shadow: 4px 7px 5px #777;
+    margin: 15px auto;
+    border-radius: 3px;
+}
+
+.movies h4 {
+    margin: auto;
+    padding: 1%;
+    font-size: 1em;
+}
+
+.centered-list {
+    display: inline-block;
+    text-align: left;
+}
+
+.movies ol {
+    line-height: 1.5em;
+    font-size: 1em;
+}
+
+/*YouTube Vids*/
+
+.youtube ul li{
+    list-style-type: none;
+}
+
+/*Responsive Design*/
+
+@media screen and (max-width: 1350px) {
+    .about-site article, .about-me article {
+        width: 40%;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    h1 {
+        font-size: 1.5em;
+    }
+    nav ul li {
+        font-size: 1.25em;
+    }
 }
